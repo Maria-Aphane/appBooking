@@ -1,0 +1,70 @@
+<div id="content">
+
+
+<h2>WELCOME {{username}} </h2>
+<table>
+    <tr> <label>Name : </label><input [(ngModel)]="name" placeholder="Name"></tr>
+    <tr><label>Surname : </label><input [(ngModel)]="sname" placeholder="Surname"></tr>
+     <tr><label>Gender :</label>
+     <select class="form-control" id="gender" required>
+         <option *ngFor="let gn of gender;let x=index" [value]="gender">{{gender[x]}}</option>
+     </select>
+     </tr>
+     <tr><label>Type Of Booking : </label>
+        <select class="form-control" id="BookingType" required [(ngModel)]=" selectedBookings">
+        <option *ngFor="let bk of BookingType;let y=index" [value]="bk">{{BookingType[y]}}</option>
+        </select>
+        </tr>   
+</table>
+<br>
+
+
+ <div *ngIf="selectedBookings=='HOTEL'">
+     <input type="radio" id="choice1" name="1DAY" value ="day">
+     <label for="choice1">1 DAY</label>
+    <br>
+    <input type="radio" id="choice2" name="2DAYS" value ="day">
+    <label for="choice2">2 DAYS</label>
+    <br>
+    <input type="radio" id="choice3" name="3DAYS" value ="day">
+    <label for="choice3">3 DAYS</label>
+    <br>
+    </div>
+   
+
+    <div *ngIf="selectedBookings=='BUS'">
+
+            <tr><label>FROM : </label>
+                <select class="form-control" id="LocationFrom" required >
+                <option *ngFor="let locF of loccationFrom;let c=index" [value]="locF">{{loccationFrom[c]}}</option>
+                </select>
+                
+                <label> TO : </label>
+                    <select class="form-control" id="LocationTo" required >
+                    <option *ngFor="let locT of loccationTo;let a=index" [value]="locT">{{loccationTo[a]}}</option>
+                    </select>
+                    </tr>
+      
+       </div>
+ <div *ngIf="selectedBookings=='COMPUTER'">
+        <input type="radio" id="choice1" name="1HOUR" value ="hour">
+        <label for="choice1">1 HOUR</label>
+       <br>
+       <input type="radio" id="choice2" name="2HOURS" value ="hour">
+       <label for="choice2">2 HOURS</label>
+       <br>
+       <input type="radio" id="choice3" name="3HOURS" value ="hour">
+       <label for="choice3">3 HOURS</label>
+       <br>
+       </div>
+       <br>
+       
+
+    <td><button>ADD BOOKINGS </button>
+        <button>SUBMIT</button>
+    </td>
+</div>
+   
+
+   
+
